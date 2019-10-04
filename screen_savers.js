@@ -136,25 +136,31 @@ for (; ;) {
     if (toggle == 2) {
 
         counter += 1
-        for (let g = 1; g < 25; g++) {
-            basic.pause(1200)
+
+        console.log("-------------Selected number")
+        console.log("" + counter)
+
+        for (let g = 1; g < 26; g++) {
+            basic.pause(100)
             if (x_x != 4) { x_x += 1 } else {
                 x_x = 0;
 
                 if (y_y != 4) { y_y += 1 } else { y_y = 0 }
 
+
             }
-            console.log("x_val");
-            console.log("" + x_x)
-            console.log("y val")
-            console.log("" + y_y);
-            console.log("----------------count----------------")
-            console.log("" + g)
+
+            //console.log("----------------count----------------")
+            //console.log("" + g)
+
+            //console.log("x_val");
+            //console.log("" + x_x)
+            //console.log("y val")
+            //console.log("" + y_y);
+            
 
 
-
-
-            if ((counter % g) > 0) { led.unplot(0, 0) }
+            if ((counter % g) > 0) { led.unplot(x_x, y_y) } else { led.plot(x_x, y_y); console.log("multiple"); console.log("" + g) };
         }
 
 
