@@ -16,11 +16,52 @@ let direction = true;
 let left_right = false;
 //1=left
 //0=right
+let toggle = 0;
+let rows = [5];
+let posi = [5];
+
+for (let x = 0; x < 5; x++) {
+    posi[x] = 5;
+
+}
+
+let selecTT;
 
 
 
 //check, then increment. 
 for (; ;) {
+
+
+
+
+
+
+    if (toggle == 0) {
+        basic.pause(1200)
+        //randomly select row to add rain drops, the outer sides are kept free of rain 
+        selecTT = Math.randomRange(0, 5);
+        if (selecTT != 0 && selecTT != 4) {
+
+            if (rows[selecTT - 1] == 0 && rows[selecTT + 1] == 0) { rows[selecTT] = 1 }
+        }
+
+
+
+        for (let i = 0; i < 5; i++) {
+            if (rows[i] == 1) { led.toggle(i, posi[i]); posi[i] -= 1; led.toggle(i, posi[i]) }
+
+        }
+
+
+
+    }
+
+
+}
+
+
+if (toggle == 1) {
     //console.log("cycle")
     //console.log(""+x_axis);
     //console.log(""+y_axis);
@@ -83,10 +124,10 @@ for (; ;) {
     //console.log(""+direction)
     //console.log(""+left_right)
 
-
-
-
 }
+
+
+
 
 
 
