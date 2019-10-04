@@ -1,0 +1,9 @@
+Screensaver ideas
+led/multiples counter: flashes led associated with number if it is a multiple of a counter's current value  1
+Random snake game:  1 
+Pixel rain -- Would need to have some minimium distance between rain drops  1
+pixel hell-fire;
+bouncing object-- ball thing which bounces around the window 1
+random line generator;
+
+3d object viewer:
