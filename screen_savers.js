@@ -6,8 +6,8 @@
 //if hits corner -- reset ball 
 
 let selection = [-1, 5];
-let x_axis = -1;
-let y_axis = -1;
+let x_axis = 3;
+let y_axis = 1;
 
 //neighboring values of direction indicate left or right
 let direction = true;
@@ -18,7 +18,7 @@ let left_right = false;
 //0=right
 
 
-let toggle = 3;
+let toggle = 4;
 let rows = [-1, -1, -1, -1, -1];
 //each row value specifys the position of a droplet
 
@@ -34,6 +34,12 @@ let y_y = 0;
 
 let rand_x = -2
 let rand_y = -2
+
+let quad = 3;
+
+let counterr = 0;
+let led_list = [25]
+let xI = 0;
 
 
 //check, then increment. 
@@ -250,4 +256,40 @@ for (; ;) {
     }
 
 
-}  
+
+    if (toggle == 4) {
+
+        //basic.pause(100)
+
+
+
+        counterr += 1
+        //console.log("" + counterr)
+        if (counterr == 800) {
+            xI += 1; quad = Math.randomRange(1, 4); counterr = 0
+
+            if (quad == 1) { led.unplot(0, 0); led.unplot(1, 0); led.unplot(0, 1); led.unplot(1, 1); led_list[(0 * 5) + 0] = xI; led_list[(0 * 5) + 1] = xI; led_list[(1 * 5) + 0] = xI; led_list[(1 * 5) + 1] = xI; }
+            if (quad == 2) { led.unplot(3, 0); led.unplot(4, 0); led.unplot(3, 1); led.unplot(4, 1); led_list[3 + (0 * 5)] = xI; led_list[4 + (0 * 5)] = xI; led_list[3 + (1 * 5)] = xI; led_list[4 + (1 * 5)] = xI; }
+            if (quad == 3) { led.unplot(0, 3); led.unplot(1, 3); led.unplot(0, 4); led.unplot(1, 4); led_list[0 + (3 * 5)] = xI; led_list[1 + (3 * 5)] = xI; led_list[0 + (4 * 5)] = xI; led_list[1 + (4 * 5)] = xI; }
+            if (quad == 4) { led.unplot(3, 3); led.unplot(4, 3); led.unplot(3, 4); led.unplot(4, 4); led_list[3 + (3 * 5)] = xI; led_list[4 + (3 * 5)] = xI; led_list[3 + (4 * 5)] = xI; led_list[4 + (4 * 5)] = xI; }
+
+
+
+        }
+        //quad = 4 //Math.randomRange(1, 4); 
+        console.log("" + xI)
+
+        x_x = Math.randomRange(0, 4)
+        y_y = Math.randomRange(0, 4)
+        //console.log("" + led_list[x_ + (y_y * 5)]);
+        if (led_list[x_x + (y_y * 5)] != xI) { led.toggle(x_x, y_y) }
+    }
+
+
+}
+
+
+
+
+
+
