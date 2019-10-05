@@ -5,9 +5,9 @@
 
 //if hits corner -- reset ball 
 
-
-let x_axis = 3;
-let y_axis = 1;
+let selection = [-1, 5];
+let x_axis = -1;
+let y_axis = -1;
 
 //neighboring values of direction indicate left or right
 let direction = true;
@@ -31,6 +31,9 @@ if (toggle == 1) { led.toggle(x_axis, y_axis); }
 let counter = 0;
 let x_x = -1;
 let y_y = 0;
+
+let rand_x = -2
+let rand_y = -2
 
 
 //check, then increment. 
@@ -173,69 +176,78 @@ for (; ;) {
     if (toggle == 3) {
 
 
+        rand_y = selection[Math.randomRange(0, 1)]
+        if (rand_y == -1) { direction = true } else { direction = false }
+        rand_x = Math.randomRange(-2, 5)
+        left_right = !left_right
+
+        for (let x = 0; x < 2; x++) {
+
+            x_axis = rand_x;
+            y_axis = rand_y;
+
+
+            for (let i = 0; i < 5; i++) {
+                basic.pause(50)
 
 
 
 
-        for (let h = 0; h != 2;) {
-            basic.pause(200)
-            if (y_axis == -2 || y_axis == 6 || x_axis == -2 || x_axis == 6) {
-                h += 1; x_axis = -1;
-                y_axis = -1;
-            };
 
 
 
-            //upwards left
-            if (direction == true && left_right == true) {
 
-
-                y_axis += 1;
-                x_axis -= 1;
-                led.toggle(x_axis, y_axis);
-                console.log("up_left")
-            }
-
-            //upwards right
-            if (direction == true && left_right == false) {
-
-
-                y_axis += 1;
-                x_axis += 1;
-                led.toggle(x_axis, y_axis);
-
-                console.log("up_right")
-            }
-
-
-            //Downwards left
-            if (direction == false && left_right == true) {
+                //upwards left
+                if (direction == true && left_right == true) {
 
 
 
-                y_axis -= 1;
-                x_axis -= 1;
-                led.toggle(x_axis, y_axis);
+                    y_axis += 1;
+                    x_axis -= 1;
+                    led.toggle(x_axis, y_axis);
+                    console.log("up_left")
+                }
 
-                console.log("down_left")
-
-            }
-            //Downwards right
-            if (direction == false && left_right == false) {
-
+                //upwards right
+                if (direction == true && left_right == false) {
 
 
-                y_axis -= 1;
-                x_axis += 1;
-                led.toggle(x_axis, y_axis);
-                console.log("down_right")
+                    y_axis += 1;
+                    x_axis += 1;
+                    led.toggle(x_axis, y_axis);
 
+                    console.log("up_right")
+                }
+
+
+                //Downwards left
+                if (direction == false && left_right == true) {
+
+
+
+                    y_axis -= 1;
+                    x_axis -= 1;
+                    led.toggle(x_axis, y_axis);
+
+                    console.log("down_left")
+
+                }
+                //Downwards right
+                if (direction == false && left_right == false) {
+
+
+
+                    y_axis -= 1;
+                    x_axis += 1;
+                    led.toggle(x_axis, y_axis);
+                    console.log("down_right")
+
+                }
             }
         }
-
 
 
     }
 
 
-}
+}  
