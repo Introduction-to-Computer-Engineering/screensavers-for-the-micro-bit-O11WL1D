@@ -18,7 +18,7 @@ let left_right = false;
 //0=right
 
 
-let toggle = 4;
+let toggle = 0;
 let rows = [-1, -1, -1, -1, -1];
 //each row value specifys the position of a droplet
 
@@ -51,15 +51,18 @@ for (; ;) {
 
 
     if (toggle == 0) {
-        basic.pause(1200)
+        basic.pause(100)
 
         //randomly select row to add rain drops, the outer sides are kept free of rain
 
-        selecTT = Math.randomRange(1, 3);
-        if (rows[selecTT - 1] == -1 && rows[selecTT + 1] == -1) { rows[selecTT] = 0; }
+
+        if (y_y == 4) { led.toggle(x_x, y_y); y_y = -1; x_x = Math.randomRange(0, 4); led.toggle(x_x, y_y) }
 
 
-        //for (let x = 0; x < 4; x++) {
+        led.toggle(x_x, y_y)
+        y_y += 1;
+        led.toggle(x_x, y_y)
+
 
 
 
