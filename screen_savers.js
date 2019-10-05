@@ -18,7 +18,7 @@ let left_right = false;
 //0=right
 
 
-let toggle = 2;
+let toggle = 3;
 let rows = [-1, -1, -1, -1, -1];
 //each row value specifys the position of a droplet
 
@@ -64,7 +64,7 @@ for (; ;) {
 
 
 
-
+    //bouncing ball screen saver 
     if (toggle == 1) {
         //console.log("cycle")
         //console.log(""+x_axis);
@@ -157,7 +157,7 @@ for (; ;) {
             //console.log("" + x_x)
             //console.log("y val")
             //console.log("" + y_y);
-            
+
 
 
             if ((counter % g) > 0) { led.unplot(x_x, y_y) } else { led.plot(x_x, y_y); console.log("multiple"); console.log("" + g) };
@@ -169,6 +169,73 @@ for (; ;) {
 
 
 
+    //random line generator screen_saver 
+    if (toggle == 3) {
+
+
+
+
+
+
+        for (let h = 0; h != 2;) {
+            basic.pause(200)
+            if (y_axis == -2 || y_axis == 6 || x_axis == -2 || x_axis == 6) {
+                h += 1; x_axis = -1;
+                y_axis = -1;
+            };
+
+
+
+            //upwards left
+            if (direction == true && left_right == true) {
+
+
+                y_axis += 1;
+                x_axis -= 1;
+                led.toggle(x_axis, y_axis);
+                console.log("up_left")
+            }
+
+            //upwards right
+            if (direction == true && left_right == false) {
+
+
+                y_axis += 1;
+                x_axis += 1;
+                led.toggle(x_axis, y_axis);
+
+                console.log("up_right")
+            }
+
+
+            //Downwards left
+            if (direction == false && left_right == true) {
+
+
+
+                y_axis -= 1;
+                x_axis -= 1;
+                led.toggle(x_axis, y_axis);
+
+                console.log("down_left")
+
+            }
+            //Downwards right
+            if (direction == false && left_right == false) {
+
+
+
+                y_axis -= 1;
+                x_axis += 1;
+                led.toggle(x_axis, y_axis);
+                console.log("down_right")
+
+            }
+        }
+
+
+
+    }
+
+
 }
-
-
