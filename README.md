@@ -107,13 +107,22 @@ This assignment asks you to design a program and implement it in micro:bit JavaS
 
 ## Screensavers
 
-### SS 1
+### SS 0
+displays randomized rain drops on the 5x5 screen
 
-_[Your description of screensaver 1]_
+### SS 1 
+displays a pixel-led ball which bounces around the screen
 
-### SS 2 
+## SS 2
+Runs a counter, then displays the multiples of the current number with each led representing a number ranging from 1-25
 
-_[And so on]_
+## SS 3
+generates random lines which shoot across the screen 
 
-## Demo URL
+## SS 4
+randomly toggles leds and an avoidance region where led toggling is disabled, usually in one of the four corners. 
+
+ 
+
+## Demo URL :https://imgur.com/gallery/A6Rwga3
 
